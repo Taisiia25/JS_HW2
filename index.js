@@ -42,14 +42,73 @@ const namesOfDays = {
 
 function getNameOfDay(lang,day) {
    if (lang === 'ru') {
-    console.log(namesOfDays.ru[day - 1])
+    console.log(namesOfDays.ru[day - 1]);
    }
    else if (lang === 'en')
-    console.log(namesOfDays.en[day - 1])
+    console.log(namesOfDays.en[day - 1]);
 }
 
-getNameOfDay('en', 7)
-getNameOfDay('ru', 3)
+getNameOfDay('en', 7);
+getNameOfDay('ru', 3);
+
+// Завдання 4
+
+const arrayOfnumbers = [19, 5, 42, 2, 77];
+
+let firstNum = null;
+let secondNum = null;
+
+for (const num of arrayOfnumbers) {
+    if  (firstNum ===  null) {
+        firstNum = num;                 // перше значення num, тобто найменше
+        continue;
+    }
+
+    if  (secondNum ===  null) {
+        if (firstNum > num)  {       // якщо firstNum більше num
+            secondNum = firstNum;   // перезаписати перше значення в друге
+            firstNum = num;        // першому присвоїти num 
+        } else { 
+            secondNum = num;      // якщо false, то другому присвоїти num
+        } 
+        continue;
+    }
+
+    if (firstNum > num) { // порівнюємо з найменшим значенням
+        secondNum = firstNum;   
+        firstNum = num; 
+        continue;
+    }
+
+    if (secondNum > num) {    
+        secondNum = num;
+        continue;
+    }
+}
+
+console.log(firstNum + secondNum)
+
+
+// Завдання 5
+
+const biteArr = [1, 0, 0, 1];  // 9
+
+let lambda = 1;
+
+let res = 0;
+
+for (let i = biteArr.length - 1; i >= 0; i--) {
+    const bite = biteArr[i];
+    if(bite) {
+        res += lambda;
+    }
+
+    lambda *= 2;
+}
+
+console.log(res)
+
+
 
 
   
